@@ -64,7 +64,6 @@ disp('Confusion matrix for MinLeaf=5')
 disp(confMat_5);
 fprintf('Accuracy: %0.2f\tPrecision: %0.2f\tRecall: %0.2f\n\n',acc_5, prec_5, recall_5);
 
-
 % Make decision tree - min leaf = 25
 tree_25 = ClassificationTree.fit(training_set(:,1:4), training_set(:,5), 'MinLeaf', 25);
 view(tree_25, 'Mode', 'Graph')
@@ -80,10 +79,10 @@ tree_50 = ClassificationTree.fit(training_set(:,1:4), training_set(:,5), 'MinLea
 view(tree_50, 'Mode', 'Graph')
 predict_50 = tree_50.predict(testing_set(:,1:4));
 confMat_50 = confusionmat(predict_50, testing_set(:,5));
-[acc_50, prec_05, recall_50] = ProcessConfusionMat(confMat_50);
+[acc_50, prec_50, recall_50] = ProcessConfusionMat(confMat_50);
 disp('Confusion matrix for MinLeaf=50')
 disp(confMat_50);
-fprintf('Accuracy: %0.2f\tPrecision: %0.2f\tRecall: %0.2f\n', acc_50, prec_05, recall_50);
+fprintf('Accuracy: %0.2f\tPrecision: %0.2f\tRecall: %0.2f\n', acc_50, prec_50, recall_50);
 
 end
 
