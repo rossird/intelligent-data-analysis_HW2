@@ -39,6 +39,14 @@ scatter(D11(:,3),D11(:,5),'r')  % Class 1, attribute 3, class label
 legend('Class 0','Class 1')
 title('Attribute 3 and class label')
 
+%% Scatter plot attribute 2 and class label
+figure
+hold on;
+scatter(D10(:,2),D10(:,5),'k')  % Class 0, attribute 3, class label
+scatter(D11(:,2),D11(:,5),'r')  % Class 1, attribute 3, class label
+legend('Class 0','Class 1')
+title('Attribute 2 and class label')
+
 %% Get random training data
 train_idx = randperm(length(d1)); % Random permutation of 1 to length(d1)
 train_idx = train_idx(1:1000);    % Pull out first 1000 random integers
@@ -55,6 +63,7 @@ confMat_5 = confusionmat(predict_5, testing_set(:,5));
 disp('Confusion matrix for MinLeaf=5')
 disp(confMat_5);
 fprintf('Accuracy: %0.2f\tPrecision: %0.2f\tRecall: %0.2f\n\n',acc_5, prec_5, recall_5);
+
 
 % Make decision tree - min leaf = 25
 tree_25 = ClassificationTree.fit(training_set(:,1:4), training_set(:,5), 'MinLeaf', 25);
